@@ -26,4 +26,8 @@
 		<ProjectReference Include="..\MicroserviceSample.ServiceDefaults\MicroserviceSample.ServiceDefaults.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="EventHandler\" />
+	</ItemGroup>
+
 </Project>

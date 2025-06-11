@@ -9,17 +9,26 @@
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1-Preview.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1-Preview.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.6" />
+		<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.4" />
+	</ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
     <ProjectReference Include="..\MicroserviceSample.ServiceDefaults\MicroserviceSample.ServiceDefaults.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DependencyInjection\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="EventHandler\" />
   </ItemGroup>
 
 </Project>
