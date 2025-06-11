@@ -1,0 +1,35 @@
+services:
+  service2:
+    image: ${DOCKER_REGISTRY-}service2
+    build:
+      context: .
+      dockerfile: Service2/Dockerfile
+
+  service1:
+    image: ${DOCKER_REGISTRY-}service1
+    build:
+      context: .
+      dockerfile: Service1/Dockerfile
+
+  sample-db:
+    image: postgres:latest
+    container_name: sample.Db
+    environment:
+      - POSTGRES_DB=sample-1
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  sample-mq:
+    image: rabbitmq:management
+    container_name: sample.RabbitMq
+    hostname: sample-mq
+    volumes:
+      - ./.containers/queue/data/:/var/lib/rabbitmq
+      - ./.containers/queue/log/:/var/log/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
